@@ -12,22 +12,50 @@
   backdrop-filter: blur(1px);
 }
 
+/* Popup content */
 .sticker-popup-content {
   background: linear-gradient(45deg, #9eec51, #d13b53, #fff6ea);
   padding: 1.5rem 1rem;
-  min-width: 150px;
+  min-width: 200px;
   max-width: 90vw;
   text-align: center;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
-  border: 10px solid;
+  border: 10px solid transparent; /* fallback for border-image */
   border-image: url("../assets/bg.webp") 30 round;
   border-radius: 30px;
-  animation: popupAppear 3  .10s ease-out;
+  animation: popupAppear 4.10s ease-out forwards;
   font-family: "Montserrat", sans-serif;
   color: #fff;
   position: relative;
   overflow: hidden;
 }
+
+.popup-gif {
+  width: 100%;
+  max-width: 300px; 
+  margin: 0 auto 1rem; 
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.popup-gif img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@keyframes popupAppear {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
 
 .sticker-popup-content::before {
   content: "";

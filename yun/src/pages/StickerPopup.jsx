@@ -27,7 +27,9 @@ export default function StickerPopup({ onClose }) {
         className="sticker-popup-content"
         onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
       >
-        <h2>Work in Progress</h2>
+  <div className="popup-gif">
+    <img src="https://media.tenor.com/Sl-nqecvfeoAAAAj/heeseung-heeseung-enhypen.gif" alt="Work in Progress GIF" />
+  </div>        <h2>Work in Progress</h2>
         <p>Stay Tuned!</p>
        
       </div>
