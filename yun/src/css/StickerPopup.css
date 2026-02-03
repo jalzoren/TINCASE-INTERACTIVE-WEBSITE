@@ -1,0 +1,90 @@
+.sticker-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(6px);
+}
+
+.sticker-popup-content {
+  background: url('../assets/bg.webp') center/cover no-repeat; 
+  padding: 2.5rem 3rem;
+  border-radius: 20px;
+  min-width: 350px;
+  max-width: 90vw;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+  border: 3px solid #d13b53;
+  animation: popupAppear 0.4s ease-out;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  position: relative;
+  overflow: hidden;
+}
+
+.sticker-popup-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #9eec51, #385e12, #fff6ea);
+  opacity: 0.15;
+  filter: blur(20px);
+  z-index: 0;
+  animation: gradientShift 5s infinite linear;
+}
+
+.sticker-popup-content h2 {
+  position: relative;
+  z-index: 1;
+  color: #d13b53;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.sticker-popup-content p {
+  position: relative;
+  z-index: 1;
+  color: #000;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.sticker-popup-close {
+  position: relative;
+  z-index: 1;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #d13b53);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.sticker-popup-close:hover {
+  background: linear-gradient(135deg, #85c43f);
+  transform: scale(1.08) rotate(-1deg);
+}
+
+@keyframes popupAppear {
+  from { transform: scale(0.7) rotate(-2deg); opacity: 0; }
+  to { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes gradientShift {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}

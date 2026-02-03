@@ -1,0 +1,63 @@
+/* Overlay behind the popup */
+.sticker-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* lighter transparent dark */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* The popup content box */
+.sticker-popup-content {
+  background: rgba(255, 246, 234, 0.9); /* soft semi-transparent beige */
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  min-width: 300px;
+  max-width: 90vw;
+  text-align: center;
+  position: relative;
+  border: 2px solid #9eec51; /* green stroke */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Heading in popup */
+.sticker-popup-content h1 {
+  font-family: 'Ballet', cursive;
+  font-size: clamp(24px, 5vw, 50px);
+  font-weight: 600;
+  color: #d13b53; /* red accent */
+  -webkit-text-stroke: 1px #690011; /* stroke like earlier */
+  margin-bottom: 1rem;
+}
+
+/* Paragraph in popup */
+.sticker-popup-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(14px, 2.5vw, 20px);
+  color: #385e12; /* dark green text */
+  margin-bottom: 1rem;
+}
+
+/* Close button */
+.sticker-popup-close {
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background-color: #9eec51; /* green button */
+  color: #1a2e00; /* dark green text */
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sticker-popup-close:hover {
+  background-color: #78c128; /* darker green hover */
+  transform: scale(1.05);
+}

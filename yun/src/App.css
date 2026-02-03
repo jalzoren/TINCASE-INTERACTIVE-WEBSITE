@@ -69,8 +69,8 @@ html, body, #root {
 .text-box-word1 {
   position: absolute;
   top: -10%;
-  left:-8%;
-  font-size: clamp(50px, 10vw, 110px);
+  left:-2%;
+  font-size: clamp(50px, 8vw, 110px);
   font-weight: 500;
   color: #d13b53;
   font-family: 'Ballet', sans-serif;
@@ -292,12 +292,12 @@ html, body, #root {
 
 
 
-.sticker1 { width: 120px; height: 180px; }
-.sticker2 { width: 100px; height: auto; }
+.sticker1 { width: 120px; height: 180px;z-index: 55; border: 2px solid #fff6ea;}
+.sticker2 { width: 150px; height: auto; }
 .sticker3 { width: 140px; height: auto; }
-.sticker4 { width: 110px; height: auto; }
-.sticker5 { width: 130px; height: auto; }
-.sticker6 { width: 90px;  height: auto; }
+.sticker4 { width: 410px; height: auto; z-index: 55;}
+.sticker5 { width: 300px; height: auto; z-index: 55;}
+.sticker6 { width: 235px;  height: auto; }
 .sticker7 { width: 100px; height: auto; }
 .sticker8 { width: 120px; height: auto; }
 .sticker9 { width: 140px; height: auto; }
