@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import "./App.css";
 import sticker1 from "./assets/2.png";
 import sticker2 from "./assets/3.png";
@@ -11,6 +11,13 @@ export default function App() {
   const [showTemp2, setShowTemp2] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
 
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  // Automatically show popup on page load
+  useEffect(() => {
+    setShowPopup(true);
+  }, []);
   const smallStickers = [
     { src: sticker1, pos: { top: "-10%", left: "-10%" } },
     { src: sticker2, pos: { top: "60%", left: "60%" } },
@@ -31,8 +38,14 @@ export default function App() {
     { id: 10, src: "/stickers/10.jpg", pos: { top: "60%", left: "15%" }, className: "sticker10", content: "This is Sticker 10" },
   ];
 
+
   return (
+
+    
     <div className="app bg">
+ {showPopup && (
+        <StickerPopup onClose={() => setShowPopup(false)} />
+      )}
       <div className="image-stack">
         {/* Toggle Images */}
         {!showTemp2 && (

@@ -4,26 +4,27 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(1px);
 }
 
 .sticker-popup-content {
-  background: url('../assets/bg.webp') center/cover no-repeat; 
-  padding: 2.5rem 3rem;
-  border-radius: 20px;
-  min-width: 350px;
+  background: linear-gradient(45deg, #9eec51, #d13b53, #fff6ea);
+  padding: 1.5rem 1rem;
+  min-width: 150px;
   max-width: 90vw;
   text-align: center;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-  border: 3px solid #d13b53;
-  animation: popupAppear 0.4s ease-out;
-  font-family: 'Montserrat', sans-serif;
-  color: #333;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  border: 10px solid;
+  border-image: url("../assets/bg.webp") 30 round;
+  border-radius: 30px;
+  animation: popupAppear 3  .10s ease-out;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
   position: relative;
   overflow: hidden;
 }
@@ -33,7 +34,7 @@
   position: absolute;
   inset: 0;
   border-radius: 20px;
-  background: linear-gradient(45deg, #9eec51, #385e12, #fff6ea);
+  background: linear-gradient(45deg, #9eec51, #385e12, #d13b53, #fff6ea);
   opacity: 0.15;
   filter: blur(20px);
   z-index: 0;
@@ -43,16 +44,16 @@
 .sticker-popup-content h2 {
   position: relative;
   z-index: 1;
-  color: #d13b53;
+  color: #fff;
   font-size: 2rem;
   margin-bottom: 1rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .sticker-popup-content p {
   position: relative;
   z-index: 1;
-  color: #000;
+  color: #fff;
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 2rem;
@@ -70,7 +71,7 @@
   font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .sticker-popup-close:hover {
@@ -79,12 +80,24 @@
 }
 
 @keyframes popupAppear {
-  from { transform: scale(0.7) rotate(-2deg); opacity: 0; }
-  to { transform: scale(1) rotate(0deg); opacity: 1; }
+  from {
+    transform: scale(0.7) rotate(-2deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 @keyframes gradientShift {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(180deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
