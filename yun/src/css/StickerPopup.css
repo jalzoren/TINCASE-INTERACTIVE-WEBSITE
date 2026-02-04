@@ -2,52 +2,40 @@
 .sticker-popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
 }
 
-/* Popup box */
+/* Popup card */
 .sticker-popup-content {
-  background: linear-gradient(135deg, #ffffff, #fff6ea);
-  padding: 1.6rem 1.4rem;
-  width: 90%;
-  max-width: 380px;
+  background: linear-gradient(180deg, #ffffff, #fff8f3);
+  padding: 2rem 1.75rem;
+  width: 92%;
+  max-width: 420px;
   text-align: center;
-  border-radius: 28px;
+  border-radius: 24px;
   font-family: "Montserrat", sans-serif;
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.35),
-    inset 0 0 0 2px rgba(255, 255, 255, 0.6);
-  animation: popupIn 0.3s cubic-bezier(.22,.61,.36,1) forwards;
-  border: 8px solid transparent;
+    0 20px 45px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.7);
+  animation: popupIn 0.35s cubic-bezier(.22,.61,.36,1) forwards;
+  border: 6px solid transparent;
   border-image: url("../assets/bg.webp") 30 round;
   position: relative;
-  overflow: hidden;
 }
 
-/* Soft glow */
-.sticker-popup-content::after {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background: radial-gradient(circle, rgba(209,59,83,0.18), transparent 60%);
-  z-index: 0;
-}
-
-/* Image / gif */
+/* Image */
 .popup-gif {
-  position: relative;
-  z-index: 1;
   width: 100%;
-  max-width: 260px;
-  margin: 0 auto 1rem;
-  border-radius: 16px;
+  max-width: 240px;
+  margin: 0 auto 1.25rem;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
 .popup-gif img {
@@ -55,54 +43,50 @@
   display: block;
 }
 
-/* Text */
+/* Title */
 .sticker-popup-content h2 {
-  position: relative;
-  z-index: 1;
-  font-size: 1.45rem;
-  margin-bottom: 0.4rem;
-  color: #d13b53;
+  font-size: 1.6rem;
   font-weight: 800;
+  color: #d13b53;
+  margin-bottom: 0.5rem;
 }
 
+/* Body text */
 .sticker-popup-content p {
-  position: relative;
-  z-index: 1;
   font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1.4rem;
-  color: #444;
+  line-height: 1.65;
+  color: #555;
+  margin-bottom: 1.75rem;
 }
 
 /* Button */
 .sticker-popup-close {
-  position: relative;
-  z-index: 1;
-  padding: 0.65rem 2rem;
+  padding: 0.7rem 2.4rem;
   border: none;
   border-radius: 999px;
-  background: linear-gradient(135deg, #d13b53, #ff6b88);
+  background: linear-gradient(135deg, #d13b53, #ff7a95);
   color: #fff;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(209, 59, 83, 0.45);
+  box-shadow: 0 10px 24px rgba(209, 59, 83, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .sticker-popup-close:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 12px 28px rgba(209, 59, 83, 0.55);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(209, 59, 83, 0.5);
 }
 
 /* Animation */
 @keyframes popupIn {
   from {
-    transform: scale(0.85) translateY(10px);
     opacity: 0;
+    transform: translateY(14px) scale(0.96);
   }
   to {
-    transform: scale(1) translateY(0);
     opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }

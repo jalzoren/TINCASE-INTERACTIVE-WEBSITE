@@ -36,6 +36,7 @@ export default function App() {
     { id: 10, src: "/stickers/10.png", pos: { top: "46%", left: "15%" }, className: "sticker10", content: "This is Sticker 10" },
   ];
 
+    const [popupData, setPopupData] = useState(null);
 
     const [loading, setLoading] = useState(false);
 

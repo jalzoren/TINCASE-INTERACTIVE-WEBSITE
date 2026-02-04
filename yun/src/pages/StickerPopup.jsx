@@ -1,11 +1,19 @@
-{/*import React from "react";
+import React from "react";
 import "../css/StickerPopup.css";
 
-export default function StickerPopup({ content, onClose }) {
+export default function StickerPopup({ content, src, onClose }) {
   return (
     <div className="sticker-popup-overlay" onClick={onClose}>
-      <div className="sticker-popup-content" onClick={(e) => e.stopPropagation()}>
-        <h1>Hello! </h1>
+      <div
+        className="sticker-popup-content"
+        onClick={(e) => e.stopPropagation()} 
+      >
+        {src && (
+          <div className="popup-gif">
+            <img src={src} alt="Sticker" />
+          </div>
+        )}
+        <h2>Hello there!</h2>
         <p>{content}</p>
         <button className="sticker-popup-close" onClick={onClose}>
           Close
@@ -14,28 +22,3 @@ export default function StickerPopup({ content, onClose }) {
     </div>
   );
 }
-
-*/}
-
-import React from "react";
-import "../css/StickerPopup.css";
-
-export default function StickerPopup({ onClose }) {
-  return (
-    <div className="sticker-popup-overlay">
-      <div
-        className="sticker-popup-content"
-        onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
-      >
-  <div className="popup-gif">
-    <img src="https://media.tenor.com/Sl-nqecvfeoAAAAj/heeseung-heeseung-enhypen.gif" alt="Work in Progress GIF" />
-  </div>        <h2>Work in Progress</h2>
-        <p>Stay Tuned!</p>
-         <button className="sticker-popup-close" onClick={onClose}>
-          Close
-        </button>
-      </div>
-    </div>
-  );
-}
-
