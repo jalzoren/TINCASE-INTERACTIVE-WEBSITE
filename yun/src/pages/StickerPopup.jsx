@@ -31,7 +31,9 @@ export default function StickerPopup({ onClose }) {
     <img src="https://media.tenor.com/Sl-nqecvfeoAAAAj/heeseung-heeseung-enhypen.gif" alt="Work in Progress GIF" />
   </div>        <h2>Work in Progress</h2>
         <p>Stay Tuned!</p>
-       
+         <button className="sticker-popup-close" onClick={onClose}>
+          Close
+        </button>
       </div>
     </div>
   );

@@ -1,131 +1,108 @@
+/* Overlay */
 .sticker-popup-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 999;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
 }
 
-/* Popup content */
+/* Popup box */
 .sticker-popup-content {
-  background: linear-gradient(45deg, #9eec51, #d13b53, #fff6ea);
-  padding: 1.5rem 1rem;
-  min-width: 200px;
-  max-width: 90vw;
+  background: linear-gradient(135deg, #ffffff, #fff6ea);
+  padding: 1.6rem 1.4rem;
+  width: 90%;
+  max-width: 380px;
   text-align: center;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
-  border: 10px solid transparent; /* fallback for border-image */
-  border-image: url("../assets/bg.webp") 30 round;
-  border-radius: 30px;
-  animation: popupAppear 4.10s ease-out forwards;
+  border-radius: 28px;
   font-family: "Montserrat", sans-serif;
-  color: #fff;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.6);
+  animation: popupIn 0.3s cubic-bezier(.22,.61,.36,1) forwards;
+  border: 8px solid transparent;
+  border-image: url("../assets/bg.webp") 30 round;
   position: relative;
   overflow: hidden;
 }
 
+/* Soft glow */
+.sticker-popup-content::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle, rgba(209,59,83,0.18), transparent 60%);
+  z-index: 0;
+}
+
+/* Image / gif */
 .popup-gif {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  max-width: 300px; 
-  margin: 0 auto 1rem; 
+  max-width: 260px;
+  margin: 0 auto 1rem;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 .popup-gif img {
   width: 100%;
   display: block;
-  object-fit: cover;
 }
 
-@keyframes popupAppear {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-
-
-.sticker-popup-content::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  background: linear-gradient(45deg, #9eec51, #385e12, #d13b53, #fff6ea);
-  opacity: 0.15;
-  filter: blur(20px);
-  z-index: 0;
-  animation: gradientShift 5s infinite linear;
-}
-
+/* Text */
 .sticker-popup-content h2 {
   position: relative;
   z-index: 1;
-  color: #fff;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  font-size: 1.45rem;
+  margin-bottom: 0.4rem;
+  color: #d13b53;
+  font-weight: 800;
 }
 
 .sticker-popup-content p {
   position: relative;
   z-index: 1;
-  color: #fff;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 1.4rem;
+  color: #444;
 }
 
+/* Button */
 .sticker-popup-close {
   position: relative;
   z-index: 1;
-  padding: 0.7rem 2rem;
+  padding: 0.65rem 2rem;
   border: none;
-  border-radius: 15px;
-  background: linear-gradient(135deg, #d13b53);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #d13b53, #ff6b88);
   color: #fff;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(209, 59, 83, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .sticker-popup-close:hover {
-  background: linear-gradient(135deg, #85c43f);
-  transform: scale(1.08) rotate(-1deg);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(209, 59, 83, 0.55);
 }
 
-@keyframes popupAppear {
+/* Animation */
+@keyframes popupIn {
   from {
-    transform: scale(0.7) rotate(-2deg);
+    transform: scale(0.85) translateY(10px);
     opacity: 0;
   }
   to {
-    transform: scale(1) rotate(0deg);
+    transform: scale(1) translateY(0);
     opacity: 1;
-  }
-}
-
-@keyframes gradientShift {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }

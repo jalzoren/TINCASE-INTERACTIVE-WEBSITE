@@ -4,6 +4,7 @@ import sticker1 from "./assets/2.png";
 import sticker2 from "./assets/3.png";
 import sticker3 from "./assets/4.png";
 import sticker4 from "./assets/5.png";
+import LoadingScreen from "./pages/LoadingScreen";
 
 import StickerPopup from "./pages/StickerPopup";
 
@@ -14,10 +15,7 @@ export default function App() {
 
   const [showPopup, setShowPopup] = useState(false);
 
-  // Automatically show popup on page load
-  useEffect(() => {
-    setShowPopup(true);
-  }, []);
+
   const smallStickers = [
     { src: sticker1, pos: { top: "-10%", left: "-10%" } },
     { src: sticker2, pos: { top: "60%", left: "60%" } },
@@ -26,18 +24,29 @@ export default function App() {
   ];
 
   const temp2Divs = [
-    { id: 1, src: "/stickers/1.jpg", pos: { top: "13%", left: "21%" }, className: "sticker1", content: "This is Sticker 1" },
-    { id: 2, src: "/stickers/2.png", pos: { top: "73%", right: "55%" }, className: "sticker2", content: "This is Sticker 2" },
-    { id: 3, src: "/stickers/3.png", pos: { top: "25%", left: "50%" }, className: "sticker3", content: "This is Sticker 3" },
-    { id: 4, src: "/stickers/4.png", pos: { bottom: "3%", left: "13%" }, className: "sticker4", content: "This is Sticker 4" },
-    { id: 5, src: "/stickers/5.png", pos: { bottom: "45%", right: "35%" }, className: "sticker5", content: "This is Sticker 5" },
-    { id: 6, src: "/stickers/6.png", pos: { top: "49%", left: "45%" }, className: "sticker6", content: "This is Sticker 6" },
-    { id: 7, src: "/stickers/7.jpg", pos: { top: "40%", right: "30%" }, className: "sticker7", content: "This is Sticker 7" },
-    { id: 8, src: "/stickers/8.jpg", pos: { bottom: "5%", left: "40%" }, className: "sticker8", content: "This is Sticker 8" },
-    { id: 9, src: "/stickers/9.jpg", pos: { bottom: "30%", right: "25%" }, className: "sticker9", content: "This is Sticker 9" },
-    { id: 10, src: "/stickers/10.jpg", pos: { top: "60%", left: "15%" }, className: "sticker10", content: "This is Sticker 10" },
+    { id: 1, src: "/stickers/1.png", pos: { top: "9%", left: "15%" }, className: "sticker1", content: "This is Sticker 1" },
+    { id: 2, src: "/stickers/2.png", pos: { top: "49%", right: "7%" }, className: "sticker2", content: "This is Sticker 2" },
+    { id: 3, src: "/stickers/3.png", pos: { top: "10%", left: "49%" }, className: "sticker3", content: "This is Sticker 3" },
+    { id: 4, src: "/stickers/4.png", pos: { bottom: "51%", left: "17%" }, className: "sticker4", content: "This is Sticker 4" },
+    { id: 5, src: "/stickers/5.png", pos: { bottom: "55%", right: "29%" }, className: "sticker5", content: "This is Sticker 5" },
+    { id: 6, src: "/stickers/6.png", pos: { top: "12%", left: "38%" }, className: "sticker6", content: "This is Sticker 6" },
+    { id: 7, src: "/stickers/7.png", pos: { top: "51%", right: "27%" }, className: "sticker7", content: "This is Sticker 7" },
+    { id: 8, src: "/stickers/8.png", pos: { bottom: "28%", left: "27%" }, className: "sticker8", content: "This is Sticker 8" },
+    { id: 9, src: "/stickers/9.png", pos: { bottom: "70%", right: "29%" }, className: "sticker9", content: "This is Sticker 9" },
+    { id: 10, src: "/stickers/10.png", pos: { top: "46%", left: "15%" }, className: "sticker10", content: "This is Sticker 10" },
   ];
 
+
+    const [loading, setLoading] = useState(false);
+
+  const handleTempClick = () => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+      setShowTemp2(true);
+    }, 1200); // adjust timing here
+  };
 
   return (
 
@@ -46,16 +55,37 @@ export default function App() {
  {showPopup && (
         <StickerPopup onClose={() => setShowPopup(false)} />
       )}
+      {loading && <LoadingScreen />}
+<div class="web-counter">
+  <a
+    href="https://www.counter12.com"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="https://www.counter12.com/img-80D0c4w0dZD4AC05-3.gif"
+      alt="Website visitor counter"
+      loading="lazy"
+    />
+  </a>
+</div>
+
+<script
+  src="https://www.counter12.com/ad.js?id=80D0c4w0dZD4AC05"
+  async
+></script>
+
+
       <div className="image-stack">
-        {/* Toggle Images */}
         {!showTemp2 && (
           <img
             src="/temp.png"
             alt="Temp"
             className="image"
-            onClick={() => setShowTemp2(true)}
+            onClick={handleTempClick}
           />
         )}
+
         {showTemp2 && (
           <img
             src="/temp2.png"
@@ -65,7 +95,6 @@ export default function App() {
           />
         )}
 
-        {/* Text Sections */}
         <div className={`text-section ${showTemp2 ? "show" : ""}`}>
           <div className="text-box-word1">What's</div>
           <div className="in">in</div>
@@ -82,7 +111,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Small pulsing stickers */}
         {smallStickers.map((sticker, index) => (
           <img
             key={index}
@@ -93,7 +121,6 @@ export default function App() {
           />
         ))}
 
-        {/* Big clickable stickers */}
         {showTemp2 &&
           temp2Divs.map((sticker) => (
             <img

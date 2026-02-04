@@ -44,7 +44,6 @@ html, body, #root {
   top: 0;
   left: 0;
     z-index: 9;
-  animation: pulse2 2s infinite ease-in-out;
 
 }
 
@@ -305,46 +304,63 @@ html, body, #root {
   cursor: pointer;
 }
 
+/* Desktop (base) */
+.sticker1  { width: 220px; height: 220px; z-index: 52; }
+.sticker2  { width: 250px; height: auto; z-index: 54; }
+.sticker3  { width: 190px; height: auto; z-index: 53; }
+.sticker4  { width: 390px; height: auto; z-index: 55; }
+.sticker5  { width: 140px; height: auto; z-index: 55; }
+.sticker6  { width: 120px; height: auto; z-index: 53; }
+.sticker7  { width: 220px; height: auto; z-index: 51; }
+.sticker8  { width: 150px; height: auto; z-index: 58; }
+.sticker9  { width: 90px;  height: auto; z-index: 59; }
+.sticker10 { width: 280px; height: auto; z-index: 60; }
 
-
-.sticker1 { width: 120px; height: 180px;z-index: 55; border: 2px solid #fff6ea;}
-.sticker2 { width: 150px; height: auto; }
-.sticker3 { width: 140px; height: auto; }
-.sticker4 { width: 410px; height: auto; z-index: 55;}
-.sticker5 { width: 300px; height: auto; z-index: 55;}
-.sticker6 { width: 235px;  height: auto; }
-.sticker7 { width: 100px; height: auto; }
-.sticker8 { width: 120px; height: auto; }
-.sticker9 { width: 140px; height: auto; }
-.sticker10 { width: 100px; height: auto; }
-
+/* Hover */
 .temp2-div:hover {
   transform: scale(1.12);
 }
 
-/* Mobile responsiveness */
+/* Tablet (≈ 70% scale) */
 @media (max-width: 768px) {
-  .sticker1 { width: 90px; height: 135px; }
-  .sticker2 { width: 70px; }
-  .sticker3 { width: 90px; }
-  .sticker4 { width: 75px; }
-  .sticker5 { width: 85px; }
-  .sticker6 { width: 60px; }
-  .sticker7 { width: 70px; }
-  .sticker8 { width: 80px; }
-  .sticker9 { width: 90px; }
-  .sticker10 { width: 70px; }
+  .sticker1  { width: 155px; height: 155px; }
+  .sticker2  { width: 175px; }
+  .sticker3  { width: 135px; }
+  .sticker4  { width: 275px; }
+  .sticker5  { width: 100px; }
+  .sticker6  { width: 85px; }
+  .sticker7  { width: 155px; }
+  .sticker8  { width: 105px; }
+  .sticker9  { width: 65px; }
+  .sticker10 { width: 195px; }
 }
 
+/* Mobile (≈ 45% scale) */
 @media (max-width: 480px) {
-  .sticker1 { width: 60px; height: 90px; }
-  .sticker2 { width: 50px; }
-  .sticker3 { width: 70px; }
-  .sticker4 { width: 50px; }
-  .sticker5 { width: 60px; }
-  .sticker6 { width: 45px; }
-  .sticker7 { width: 50px; }
-  .sticker8 { width: 60px; }
-  .sticker9 { width: 70px; }
-  .sticker10 { width: 50px; }
+  .sticker1  { width: 100px; height: 100px; }
+  .sticker2  { width: 115px; }
+  .sticker3  { width: 85px; }
+  .sticker4  { width: 175px; }
+  .sticker5  { width: 65px; }
+  .sticker6  { width: 55px; }
+  .sticker7  { width: 100px; }
+  .sticker8  { width: 70px; }
+  .sticker9  { width: 40px; }
+  .sticker10 { width: 125px; }
+}
+.web-counter {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+}
+
+.web-counter img {
+  border: none;
+  opacity: 0.85;
+  pointer-events: none; 
 }
